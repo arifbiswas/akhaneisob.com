@@ -1,0 +1,70 @@
+[
+    {
+        "id" : "1",
+        "name" : "Newspaper Websites"
+    },
+    {
+        "id" : "2",
+        "name" : "E-commerce website"
+    },
+    {
+        "id" : "3",
+        "name" : "Company website"
+    },
+    {
+        "id" : "4",
+        "name" : "Education, Training Institute/Coaching Center Website"
+    },
+    {
+        "id" : "5",
+        "name" : "Personal website"
+    },
+    {
+        "id" : "6",
+        "name" : "Tour/Visa Farm/Resort Website"
+    },
+    {
+        "id" : "7",
+        "name" : "Hotel and tourism website"
+    },
+    {
+        "id" : "8",
+        "name" : "Event management website"
+    },
+    {
+        "id" : "9",
+        "name" : "Furniture company website"
+    },
+    {
+        "id" : "10",
+        "name" : "Real estate company website"
+    },
+    {
+        "id" : "11",
+        "name" : "Engineering/Construction Company Website"
+    },
+    {
+        "id" : "12",
+        "name" : "Hotel restaurant website"
+    },
+    {
+        "id" : "13",
+        "name" : "Buying House/Garments Website"
+    },
+    {
+        "id" : "14",
+        "name" : "Interior design company website"
+    },
+    {
+        "id" : "15",
+        "name" : "Marketing and law-firm websites"
+    },
+    {
+        "id" : "16",
+        "name" : "Hospital/Clinic Website"
+    },
+    {
+        "id" : "17",
+        "name" : "Financial Association Website"
+    }
+]
