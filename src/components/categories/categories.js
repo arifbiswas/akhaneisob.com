@@ -9,7 +9,7 @@ const Categories = () => {
     return (
         <div className='max-h-min grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-3 justify-items-center'>
             {
-                data.map((item,i)=><CategoriesCard key={item.id || i} data={item}/>)
+                categories.map((item,i)=><CategoriesCard key={item.id || i} data={item}/>)
             }
         </div>
     );

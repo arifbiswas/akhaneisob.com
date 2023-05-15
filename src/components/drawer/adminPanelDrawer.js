@@ -1,7 +1,7 @@
 import React from 'react';
 import { TfiClose } from 'react-icons/tfi';
 import { useDispatch } from 'react-redux';
-import { toggleAdminPanelReducer } from '../../../app/reducers/toggle';
+import { toggleAdminPanelReducer } from '../../../app/reducers/toggleReducer';
 import Link from 'next/link';
 
 const AdminPanelDrawer = () => {

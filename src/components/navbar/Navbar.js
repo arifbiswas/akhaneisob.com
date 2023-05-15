@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { TfiClose } from "react-icons/tfi";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDrawerReducer } from "../../../app/reducers/toggle";
+import { toggleDrawerReducer } from "../../../app/reducers/toggleReducer";
 import Link from "next/link";
 
 const Navbar = () => {

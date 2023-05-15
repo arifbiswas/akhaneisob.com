@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const getAllCategories = createAsyncThunk("category/allCategories",async() =>{
    try {
-    const response = await axios.get("http://localhost:3000/api/categories")
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`)
     // console.log(response.data.category);
      return response.data.category
    } catch (error) {

@@ -1,8 +1,8 @@
-import AdminPanelDrawer from '@/components/drawer/adminPanelDrawer';
+import AdminPanelDrawer from '../components/drawer/adminPanelDrawer';
 import React from 'react';
 import { TbArrowAutofitRight,TbArrowAutofitLeft } from "react-icons/tb";
 import { useDispatch , useSelector } from 'react-redux';
-import { toggleAdminPanelReducer } from '../../app/reducers/toggle';
+import { toggleAdminPanelReducer } from '../../app/reducers/toggleReducer';
 
 const AdminLayout = ({children}) => {
     const {togglePanel} = useSelector(state => state.toggle)

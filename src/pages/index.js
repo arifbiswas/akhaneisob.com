@@ -1,3 +1,4 @@
+"use client"
 import Categories from '@/components/categories/categories'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -7,8 +8,9 @@ import { useEffect } from 'react';
 import { getAllCategories } from '../../app/reducers/categoriesReducer';
 
 
+
+
 export default function Home() {
-//  console.log(process.env);
  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllProducts());

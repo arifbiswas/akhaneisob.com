@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { drawerToggleSlice } from './reducers/toggle'
+import { drawerToggleSlice } from './reducers/toggleReducer'
 import { productsReducer } from './reducers/productsReducer'
 import { categoryReducer } from './reducers/categoriesReducer'
 

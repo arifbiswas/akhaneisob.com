@@ -1,7 +1,7 @@
 import React from 'react';
 import { TfiClose } from "react-icons/tfi";
 import { useDispatch } from 'react-redux';
-import { toggleDrawerReducer } from '../../../app/reducers/toggle';
+import { toggleDrawerReducer } from '../../../app/reducers/toggleReducer';
 const Drawer = () => {
     const dispatch = useDispatch();
     return (

@@ -10,7 +10,7 @@ const SingleCard = ({site}) => {
               <div className='flex flex-col items-center justify-between p-4'>
                 <h2 className='text-xl font-bold text-white'>{site?.name}</h2>
                 <p className='text-gray-200 text-center my-1'>{site?.description}</p>
-                <a className='w-full bg-green-800 text-center p-2 mt-3 text-gray-400 hover:text-gray-200' href={site?.url} target='_blank' rel='noreferrer'>Visit Site</a>
+                <a className='w-full bg-green-800 text-center hover:bg-green-900 p-2 mt-3 text-gray-300 hover:text-gray-100 transition-all duration-200' href={site?.url}>View Details</a>
               </div>
             </div>
         </div>

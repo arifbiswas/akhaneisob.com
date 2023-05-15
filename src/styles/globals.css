@@ -1,27 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
+
+@layer base {
+    :root {
+      --color-primary: #023526;
+      --color-secondary: #005842;
+      /* ... */
+    }
   }
+
+:root{
+  font-family: 'Poppins', sans-serif;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+/* Track */ 
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+    border-radius: 20px;
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:rgba(58, 114, 60, 1);
+    border-radius: 10px;
+    box-shadow: inset 5px -5px 5px rgba(58, 114, 60, 1);
+  }
+  /* Handle */
+  ::-webkit-scrollbar-corner{
+    background: transparent;
+    border-radius: 20px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:rgb(46, 94, 48);
+    border-radius: 5px 0 0 5px;
+    box-shadow: inset 5px -5px 5px rgb(24, 57, 25);
+  }

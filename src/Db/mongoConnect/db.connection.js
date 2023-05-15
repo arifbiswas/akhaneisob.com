@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 
 const mongodb_connection = async () =>{
     try {
-     const conn =  await mongoose.connect("mongodb+srv://akhaneisob:arif310@cluster0.7xyixxj.mongodb.net/Akhanei_Sob", {
+     const conn =  await mongoose.connect(process.env.NEXT_PUBLIC_DB, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
        
     })
-        console.log(`MongoDB Connected: ${conn.connection.host}`)
+        console.log(`MongoDB Connected`)
    
 
     } catch (error) {
@@ -18,4 +18,4 @@ const mongodb_connection = async () =>{
 }
 
 
-module.exports = mongodb_connection;
+export default mongodb_connection;
