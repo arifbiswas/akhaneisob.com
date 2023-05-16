@@ -58,7 +58,7 @@ const Categories = () =>{
   const router = useRouter();
   const {id} = router.query;
   useEffect(()=>{
-    const findNish = categories?.categories.filter(item => item._id === id);
+    const findNish = categories?.categories?.filter(item => item._id === id);
     setnish(findNish[0]);
   },[id])
 //   console.log(nish);
@@ -66,8 +66,8 @@ const Categories = () =>{
        <>
        <Metadata title={nish?.name}/>
          <main>
-            <h1 className="text-3xl font-semibold text-white text-center my-4">{nish?.name}</h1>
-            <hr className=" border border-gray-500 w-[80%] mx-auto" />
+            <h1 className="text-3xl font-semibold text-white text-center mt-8">{nish?.name}</h1>
+           
             <div className="my-10 w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {
               sites.map(site => <SingleCard key={site.id} site={site} />)
