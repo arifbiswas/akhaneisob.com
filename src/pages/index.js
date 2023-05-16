@@ -2,20 +2,10 @@
 import Categories from '@/components/categories/categories'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useDispatch } from 'react-redux';
-import { getAllProducts } from '../../app/reducers/productsReducer';
-import { useEffect } from 'react';
-import { getAllCategories } from '../../app/reducers/categoriesReducer';
-
-
 
 
 export default function Home() {
- const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllProducts());
-    dispatch(getAllCategories());
-  },[dispatch]);
+
 
   return (
     <>

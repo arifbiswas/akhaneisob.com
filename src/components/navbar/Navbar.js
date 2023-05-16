@@ -10,7 +10,7 @@ const Navbar = () => {
     const {toggleDrawer} = useSelector(state => state.toggle)
     // console.log(toggle);
     return (
-        <div className=" bg-green-700 shadow-2xl drop-shadow-2xl w-full flex justify-between items-center py-4 px-5 gap-4">
+        <div className=" bg-green-700 shadow-2xl drop-shadow-2xl w-full flex justify-between items-center py-4 px-5 gap-4 ">
             <div className="flex items-baseline gap-2">
                 <Link href="/"  className="text-3xl font-black text-white">AKHANEI-SOB</Link>
 

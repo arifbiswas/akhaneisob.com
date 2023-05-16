@@ -5,7 +5,6 @@ import MainLayout from '@/layout/MainLayout'
 import { Toaster } from 'react-hot-toast'
 
 export default function App({ Component, pageProps }) {
-  
   return <>
    <Provider store={store}>
    <MainLayout>

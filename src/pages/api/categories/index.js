@@ -1,6 +1,6 @@
 import Category from "@/Db/models/categoryModel";
-import Product from "../../Db/models/productModel";
-import mongodb_connection from "../../Db/mongoConnect/db.connection"
+import Product from "../../../Db/models/productModel";
+import mongodb_connection from "../../../Db/mongoConnect/db.connection"
 import mongoose from "mongoose";
 // pages/api/hello.js
 import nc from "next-connect";

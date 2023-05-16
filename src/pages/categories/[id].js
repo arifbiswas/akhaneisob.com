@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import data from "../../components/categories/data.json"
 import SingleCard from "@/components/cards/singleCard";
 import Metadata from "@/components/metadata/Metadata";
+import { useSelector } from "react-redux";
 const sites =[
   {
     id: 1,
@@ -51,11 +52,13 @@ const sites =[
 
 ]
 const Categories = () =>{
+  const categories = useSelector(state => state.categories)
+
     const [nish, setnish] = useState(null);
   const router = useRouter();
   const {id} = router.query;
   useEffect(()=>{
-    const findNish = data.filter(item => item.id === id);
+    const findNish = categories?.categories.filter(item => item._id === id);
     setnish(findNish[0]);
   },[id])
 //   console.log(nish);

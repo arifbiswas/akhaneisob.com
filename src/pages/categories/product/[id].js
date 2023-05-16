@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react";
-import data from "../../components/categories/data.json"
+import data from "../../../components/categories/data.json"
 
 import Metadata from "@/components/metadata/Metadata";
 import MainCard from "@/components/cards/mainCard";
@@ -64,9 +64,8 @@ const Categories = () =>{
        <>
        <Metadata title={nish?.name}/>
          <main>
-            <h1 className="text-3xl font-semibold text-white text-center my-4">{nish?.name}</h1>
-            <hr className=" border border-gray-500 w-[80%] mx-auto" />
-            <div className="my-10 w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          
+            <div className="">
             <MainCard />
              
             </div>

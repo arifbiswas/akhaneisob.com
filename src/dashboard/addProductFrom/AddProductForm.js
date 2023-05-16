@@ -1,8 +1,10 @@
+"use client"
 import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 const AddProductForm = () => {
+    const [isPhoto ,setIsPhoto] = useState(false);
     const [formData , setFormData] = useState({});
     const handleFormSubmit = (e) =>{
         e.preventDefault();
@@ -26,7 +28,8 @@ const AddProductForm = () => {
         }).catch(error => toast.error("Something went wrong"))
     }
     return (
-        <form onSubmit={handleFormSubmit} className='w-[45%] flex flex-col gap-5 justify-center mx-auto mt-12'>
+        <form onSubmit={handleFormSubmit} className='px-2 lg:px-12 mt-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-2  gap-5'>
             <div className='flex flex-col  gap-3 '>
                 <label htmlFor="product-name" className='font-semibold text-white text-xl '>P.Name</label>
                 <input type="text" id='product-name' name="name" placeholder='product name' className='py-3 text-gray-500 font-medium px-5 rounded-md w-full outline-none' onBlur={(e)=>setFormData({...formData , name : e.target.value})} />
@@ -40,14 +43,25 @@ const AddProductForm = () => {
                 <input type="text" id='description' name="description" placeholder='description' className='py-3 text-gray-500 font-medium px-5 rounded-md  w-full outline-none' onBlur={(e)=>setFormData({...formData , description : e.target.value})} />
             </div>
             <div className='flex flex-col  gap-3 '>
-                <label htmlFor="photo" className='font-semibold text-white text-xl  '>Photo</label>
-                <input type="file" id='photo' name="photo" placeholder='img url' className='py-3 text-gray-500 font-medium px-5 rounded-md  w-full outline-none' onBlur={(e)=>setFormData({...formData , img : e.target.files})} />
+                <div className='flex items-center gap-3'>
+                 <label onClick={()=>setIsPhoto(true)} htmlFor="photo1" className={`font-semibold ${isPhoto && "bg-green-500 p-1 rounded-md"}  text-white text-sm`}>Photo Link</label> 
+                  <label onClick={()=>setIsPhoto(false)} htmlFor="photo" className={`font-semibold text-white text-sm ${!isPhoto && "bg-green-500 p-1 rounded-md"}`}>Photo</label>
+                
+                </div>
+                <div>
+                {
+                    isPhoto ? <input type="text" id='photo1' name="photo" placeholder='img url' className='py-3 text-gray-500 font-medium px-5 rounded-md  w-full outline-none' onBlur={(e)=>setFormData({...formData , imgLink : e.target.files})} /> :<input type="file" id='photo' name="photo" placeholder='img url' className='py-3 text-gray-500 font-medium px-5 rounded-md  w-full outline-none' onBlur={(e)=>setFormData({...formData , img : e.target.files})} />
+                }
+                
+               
+                </div>
             </div>
             <div className='flex flex-col  gap-3 '>
                 <label htmlFor="live-link-url" className='font-semibold text-white text-xl  '>Live Link</label>
                 <input type="url" id='live-link-url' name="url" placeholder='live link url' className='py-3 text-gray-500 font-medium px-5 rounded-md  w-full outline-none' onBlur={(e)=>setFormData({...formData , url : e.target.value})} />
             </div>
-           <div className='flex justify-center'>
+            </div>
+           <div className='flex justify-center mt-12'>
             <button type="submit" className='bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-5 rounded-md'>Add Product</button>
            </div>
         </form>
