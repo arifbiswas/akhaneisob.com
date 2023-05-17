@@ -7,10 +7,12 @@ const AdminPanel = () => {
     
   
     return (
-       <AdminLayout>
+       <main>
+        <AdminLayout>
        <AllProducts />
        
       </AdminLayout>
+       </main>
     );
 };
 

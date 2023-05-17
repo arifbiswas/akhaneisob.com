@@ -14,7 +14,8 @@ const MainCard = () => {
             alt=""
           />
         </div>
-        <div className="relative bg-green-700 rounded-md p-5 border-4 border-green-600 shadow-xl shadow-green-500 text-white ">
+        <div className=" bg-green-700 rounded-md p-5 border-4 border-green-600 shadow-xl shadow-green-500 text-white flex flex-col justify-between">
+          <div>
           <h2 className="text-2xl font-semibold">Newspaper 1</h2>
           <p className="text-xl mt-3 font-semibold">500 Tk.</p>
           <p className="text-sm mt-3 text-yellow-300 font-semibold">
@@ -25,9 +26,10 @@ const MainCard = () => {
             like your comapany logo and we should know news channel and news
             categories any compnay need web portal current situation adn{" "}
           </p>
+          </div>
 
-          <div className="lg:absolute bottom-4 mt-5">
-            <div className="flex flex-col lg:flex-row gap-3">
+          <div className="mt-5">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               <button className="rounded-md bg-green-50 text-green-800 px-5 py-2 font-semibold border-2 border-green-600 shadow-md hover:shadow-green-300 transition-all duration-200 translate-y-0 hover:-translate-y-2 scale-100 hover:scale-105">
                 Purchases 500 Tk
               </button>

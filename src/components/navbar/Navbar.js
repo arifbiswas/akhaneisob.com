@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className="hidden lg:block ">
                 <div className="flex">
                 <Link href="/" className="px-4 py-2 text-white flex items-center gap-1">
-                <span ><FaHome /></span> 
+                <span><FaHome /></span> 
                 <span>HOME</span>
                 </Link>
                 <Link href="/" className="px-4 py-2 text-white flex items-center gap-1">

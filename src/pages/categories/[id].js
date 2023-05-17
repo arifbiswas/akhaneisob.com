@@ -65,10 +65,10 @@ const Categories = () =>{
     return (
        <>
        <Metadata title={nish?.name}/>
-         <main>
+         <main className="min-h-screen">
             <h1 className="text-3xl font-semibold text-white text-center mt-8">{nish?.name}</h1>
            
-            <div className="my-10 w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="my-10 w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {
               sites.map(site => <SingleCard key={site.id} site={site} />)
             }
