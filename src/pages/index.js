@@ -1,12 +1,9 @@
-"use client"
-import Categories from '@/components/categories/categories'
-import Head from 'next/head'
-import Image from 'next/image'
-
+"use client";
+import Categories from "@/components/categories/categories";
+import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
-
-
   return (
     <>
       <Head>
@@ -15,11 +12,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='relative bg-green-950 min-h-screen'>
-       <section className='w-[80%] mx-auto pt-10'>
-       <Categories />
-       </section>
+      <main className="relative bg-green-950 min-h-screen">
+        <section className="w-[80%] mx-auto pt-10">
+          <Categories />
+        </section>
       </main>
     </>
-  )
+  );
 }

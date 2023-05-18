@@ -3,19 +3,19 @@ import { TfiClose } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
 import { toggleAdminPanelReducer } from "../../../app/reducers/toggleReducer";
 import Link from "next/link";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 const data = [
-    {
-        id: 1,
-        name: "Dashboard",
-        path: "/admin",
-    },
-    {
-        id: 2,
-        name: "Categories",
-        path: "/admin/categories",
-    }
-]
+  {
+    id: 1,
+    name: "Dashboard",
+    path: "/admin",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+];
 
 const AdminPanelDrawer = () => {
   const dispatch = useDispatch();
@@ -30,19 +30,19 @@ const AdminPanelDrawer = () => {
         <TfiClose size={28} color="white" />
       </button>
       <div className="flex flex-col gap-4 justify-center items-start mt-12">
-      {
-        data.map((item , index) => 
-        <Link key={index}
-          href={item.path}
-          className={item.path === pathname  ?`text-center text-2xl w-full lg:w-[80%] mx-auto text-white font-semibold  bg-green-600 rounded-md py-2` : `text-center text-2xl w-full lg:w-[80%] mx-auto text-white font-semibold  hover:bg-green-950 rounded-md py-2`}
-        >
-          {item.name} 
-        </Link>
-        )
-          
-      }
-       
-       
+        {data.map((item, index) => (
+          <Link
+            key={index}
+            href={item.path}
+            className={
+              item.path === pathname
+                ? `text-center text-2xl w-full lg:w-[80%] mx-auto text-white font-semibold  bg-green-600 rounded-md py-2`
+                : `text-center text-2xl w-full lg:w-[80%] mx-auto text-white font-semibold  hover:bg-green-950 rounded-md py-2`
+            }
+          >
+            {item.name}
+          </Link>
+        ))}
       </div>
     </div>
   );
