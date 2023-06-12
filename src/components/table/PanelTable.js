@@ -11,6 +11,8 @@ const PanelTable = ({
   category,
   sales,
   contents,
+  editLink,
+  deleteLink,
 }) => {
   return (
     <div className="flex flex-col py-3">
@@ -25,7 +27,7 @@ const PanelTable = ({
                   </th>
 
                   {picture && (
-                    <th className="text-sm font-medium  px-3 py-4 text-left uppercase">
+                    <th className="text-sm font-medium w-12  px-3 py-4 text-left uppercase">
                       picture
                     </th>
                   )}
@@ -60,13 +62,13 @@ const PanelTable = ({
                 </tr>
               </thead>
               {contents?.map((content, index) => (
-                <tbody key={content._id || index}>
+                <tbody key={content?._id || index}>
                   <tr className="bg-green-600 border-b border-green-800">
                     <td className="px-3 py-4 text-sm font-medium text-center whitespace-nowrap">
                       {index + 1}
                     </td>
-                    {picture && content.imgUrl && (
-                      <td className="text-sm  font-light px-3 py-4 whitespace-nowrap">
+                    {picture && content?.imgUrl && (
+                      <td className="text-sm w-12  font-light px-3 py-4 whitespace-nowrap">
                         <img
                           className="w-12 h-12 rounded-md"
                           src={content?.imgUrl}
@@ -74,27 +76,27 @@ const PanelTable = ({
                         />
                       </td>
                     )}
-                    {name && content.name && (
+                    {name && content?.name && (
                       <td className="text-sm  font-light px-3 py-4 whitespace-nowrap">
                         {content?.name}
                       </td>
                     )}
-                    {description && content.description && (
+                    {description && content?.description && (
                       <td className="text-sm  font-light px-3 py-4 whitespace-nowrap">
                         {content?.description.slice(0, 30)}
                       </td>
                     )}
-                    {category && content.category && (
+                    {category && content?.category && (
                       <td className="text-sm  font-light px-3 py-4 whitespace-nowrap">
                         {content?.category}
                       </td>
                     )}
-                    {price && content.price && (
+                    {price && content?.price && (
                       <td className="text-sm  font-light px-3 py-4 whitespace-nowrap">
                         {content?.price}
                       </td>
                     )}
-                    {sales && content.sales && (
+                    {sales && content?.sales && (
                       <td className="text-sm  font-light px-3 py-4 whitespace-nowrap">
                         {content?.sales}
                       </td>
@@ -103,6 +105,7 @@ const PanelTable = ({
                       <WhiteButton
                         css={"text-white bg-green-500 mx-2"}
                         text={"Edit"}
+                        link={`${editLink}/${content?._id}`}
                       >
                         {" "}
                         <FaEdit />{" "}
@@ -110,6 +113,7 @@ const PanelTable = ({
                       <WhiteButton
                         css={"text-white bg-red-500 mx-2"}
                         text={"Edit"}
+                        link={`${deleteLink}/${content?._id}`}
                       >
                         {" "}
                         <FaTrash />{" "}

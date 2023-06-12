@@ -3,12 +3,12 @@ import WhiteButton from "../smallComponents/whiteButton";
 
 const SingleCard = ({ site }) => {
   return (
-    <div className="bg-green-700 h-[96] rounded-lg border-2 border-green-500 shadow-lg shadow-green-500">
-      <div className="">
+    <div className="bg-green-700 rounded-lg border-4 border-green-500 shadow-lg shadow-green-500">
+      <div className="overflow-hidden">
         <img
           src={site?.img}
           alt={site?.name}
-          className="w-full h-52 bg-cover rounded-t-lg"
+          className="h-52 bg-cover rounded-t-lg scale-100 hover:scale-125 transition-all duration-1000"
         />
       </div>
       <div className="">

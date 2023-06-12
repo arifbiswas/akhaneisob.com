@@ -1,5 +1,5 @@
 import PanelHeader from "@/components/smallComponents/PanelHeader";
-import AddNewForm from "../../dashboard/addProductFrom/AddNewForm";
+import AddNewForm from "../../../dashboard/addProductFrom/AddNewForm";
 import AdminLayout from "@/layout/AdminLayout";
 import React from "react";
 

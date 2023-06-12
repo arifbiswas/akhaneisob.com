@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
 
 const categorySchema = mongoose.Schema({
-  name: String,
-  description: String,
-  imgUrl: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  imgUrl: {
+    type: String,
+    required: true,
+  },
   created_at: {
     type: Date,
     default: Date.now,

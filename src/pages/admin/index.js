@@ -1,19 +1,16 @@
-import AdminLayout from '@/layout/AdminLayout';
-import React from 'react';
+import AdminLayout from "@/layout/AdminLayout";
+import React from "react";
 
-import AllProducts from '@/dashboard/allProducts/AllProducts';
+import AllProducts from "@/dashboard/allProducts/AllProducts";
 
 const AdminPanel = () => {
-    
-  
-    return (
-       <main>
-        <AdminLayout>
-       <AllProducts />
-       
+  return (
+    <main>
+      <AdminLayout>
+        <AllProducts />
       </AdminLayout>
-       </main>
-    );
+    </main>
+  );
 };
 
 export default AdminPanel;

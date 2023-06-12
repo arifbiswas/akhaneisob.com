@@ -16,7 +16,12 @@ const AllCategories = () => {
           text={"Add Category"}
         />
       </div>
-      <PanelTable contents={categories} name={true} picture={true} />
+      <PanelTable
+        contents={categories}
+        name={true}
+        picture={true}
+        editLink={"/admin/categories/update"}
+      />
     </div>
   );
 };

@@ -10,9 +10,9 @@ const CategoriesCard = ({ data }) => {
     >
       <div className="grid grid-cols-3 gap-2 justify-items-center items-center">
         <img
-          className="w-full rounded-full border-4 border-green-800 shadow-md shadow-green-500"
-          src="https://t3.ftcdn.net/jpg/00/88/43/58/360_F_88435847_HhglbcoGP5qOX3DfudP3hN5z95eTrHqz.jpg"
-          alt=""
+          className="w-16 h-16 rounded-full border-4 border-green-500 shadow-md shadow-green-500"
+          src={data?.imgUrl}
+          alt={data?.name}
         />
         <h1 className="col-span-2 text-center text-sm font-medium text-white z-20">
           {data.name}

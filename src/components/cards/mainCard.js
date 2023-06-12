@@ -9,7 +9,7 @@ const MainCard = () => {
       <div className=" h-full grid grid-cols-1 md:grid-cols-2 gap-3 ">
         <div>
           <img
-            className="h-full lg:h-[70vh] rounded-md border-4 border-green-600 shadow-xl shadow-green-500"
+            className="h-full md:h-[60vh] rounded-md border-4 border-green-600 shadow-xl shadow-green-500"
             src="https://img.freepik.com/free-vector/cartoon-web-design-landing-page_52683-70880.jpg?w=2000"
             alt=""
           />
@@ -37,13 +37,13 @@ const MainCard = () => {
                 Add to Cart
               </button>
               <button className="rounded-md bg-green-50 text-green-800 px-5 py-2 font-semibold border-2 border-green-600 shadow-md hover:shadow-green-300 transition-all duration-200 translate-y-0 hover:-translate-y-2 scale-100 hover:scale-105">
-                View Live
+                Demo
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-12 w-full lg:w-[80vw] p-5 border border-green-500 rounded-md">
+      <div className="mt-12 w-full lg:w-[80vw] p-5  rounded-md">
         <h1 className="text-center text-white text-2xl py-3 ">Reviews</h1>
         <Swiper
           spaceBetween={30}

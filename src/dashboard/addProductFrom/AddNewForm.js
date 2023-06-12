@@ -1,9 +1,11 @@
 "use client";
 import axios from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { RiImageAddFill } from "react-icons/ri";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { UpdateAndAddedNewCategory } from "../../../app/categories/categoriesActions";
+
 const AddNewForm = ({
   name,
   category,
@@ -11,14 +13,17 @@ const AddNewForm = ({
   img,
   LiveLink,
   backendUrl,
+  content,
+  isCategory,
+  isProducts,
 }) => {
+  // console.log(content);
   const { categories } = useSelector((state) => state.categories);
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [isPhoto, setIsPhoto] = useState(false);
   const [formData, setFormData] = useState({});
-  let urlImage = "";
-  if (formData?.imgUrl) {
-    urlImage = URL.createObjectURL(formData?.imgUrl[0]);
-  }
+  const [urlImage, setUrlImage] = useState("");
   // console.log(urlImage);
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -32,22 +37,52 @@ const AddNewForm = ({
       .then((res) => {
         console.log(res.data.data.url);
         formData.imgUrl = res.data.data.url;
-        console.log(formData);
+        // console.log(formData);
         if (res.data.data.url) {
-          axios.post(backendUrl, formData).then((res) => {
-            console.log(res);
-            if (res.data.message === "success") {
-              toast.success("created successfully");
-            } else {
-              toast.error("Something went wrong 'Not Created at this time'");
+          if (content?._id) {
+            if (!formData.name) {
+              formData.name = content.name;
             }
-          });
+            axios.put(backendUrl, formData).then((res) => {
+              if (res.data.message === "success") {
+                toast.success("Updated successfully");
+                if (isCategory) {
+                  console.log(res.data.category);
+                  UpdateAndAddedNewCategory(
+                    res?.data?.category,
+                    categories,
+                    dispatch
+                  );
+                  router.push("/admin/categories");
+                }
+              } else {
+                toast.error("Something went wrong");
+              }
+            });
+          } else {
+            axios.post(backendUrl, formData).then((res) => {
+              console.log(res);
+              if (res.data.message === "success") {
+                toast.success("created successfully");
+              } else {
+                toast.error("Something went wrong 'Not Created at this time'");
+              }
+            });
+          }
         } else {
           toast.error("Something went wrong 'Image not found'");
         }
       })
       .catch((error) => toast.error("Something went wrong"));
   };
+
+  // console.log(formData?.imgUrl?.[0].name);
+  useEffect(() => {
+    if (formData?.imgUrl?.[0]?.name) {
+      const newUrlImage = URL?.createObjectURL(formData?.imgUrl[0]);
+      setUrlImage(newUrlImage);
+    }
+  }, [formData?.imgUrl, formData?.imgUrl?.[0].name]);
 
   return (
     <form onSubmit={handleFormSubmit} className="px-2 lg:px-12 mt-12">
@@ -64,8 +99,9 @@ const AddNewForm = ({
               type="text"
               id="product-name"
               name="name"
+              defaultValue={content?._id && content?.name}
               placeholder="product name"
-              className="py-3 text-green-500 focus:shadow-lg focus:shadow-green-500 font-medium px-5 rounded-md w-full outline-none"
+              className="py-3  focus:shadow-lg focus:shadow-green-500 font-medium px-5 rounded-md w-full outline-none"
               onBlur={(e) => setFormData({ ...formData, name: e.target.value })}
             />
           </div>
@@ -109,8 +145,9 @@ const AddNewForm = ({
               type="text"
               id="description"
               name="description"
+              defaultValue={content?._id && content?.description}
               placeholder="description"
-              className="py-3 text-green-500 font-medium px-5 rounded-md  w-full outline-none"
+              className="py-3  font-medium px-5 rounded-md  w-full outline-none"
               onBlur={(e) =>
                 setFormData({ ...formData, description: e.target.value })
               }
@@ -130,33 +167,37 @@ const AddNewForm = ({
               type="url"
               id="live-link-url"
               name="url"
+              defaultValue={content?._id && content?.url}
               placeholder="live link url"
-              className="py-3 text-green-500 font-medium px-5 rounded-md  w-full outline-none"
+              className="py-3  font-medium px-5 rounded-md  w-full outline-none"
               onBlur={(e) => setFormData({ ...formData, url: e.target.value })}
             />
           </div>
         )}
       </div>
       {img && (
-        <div className="flex flex-col  gap-3 mt-5 w-full lg:w-40">
+        <div
+          className={`flex flex-col  gap-3 mt-5 w-full ${isPhoto || "lg:w-40"}`}
+        >
           <div className="flex items-center gap-3">
             {/* photo add buttons  */}
+
+            <label
+              onClick={() => setIsPhoto(false)}
+              className={`font-semibold text-white text-sm hover:bg-green-500 p-1 px-2 rounded-md ${
+                !isPhoto && "bg-green-500 p-1 rounded-md px-2"
+              }`}
+            >
+              Photo
+            </label>
             <label
               onClick={() => setIsPhoto(true)}
               htmlFor="photo1"
               className={`font-semibold ${
-                isPhoto && "bg-green-500 p-1 rounded-md"
-              }  text-white text-sm hover:bg-green-500 p-1 rounded-md`}
+                isPhoto && "bg-green-500 p-1 rounded-md px-2"
+              }  text-white text-sm hover:bg-green-500 p-1 rounded-md px-2`}
             >
               Photo Link
-            </label>
-            <label
-              onClick={() => setIsPhoto(false)}
-              className={`font-semibold text-white text-sm hover:bg-green-500 p-1 rounded-md ${
-                !isPhoto && "bg-green-500 p-1 rounded-md "
-              }`}
-            >
-              Photo
             </label>
             {/* photo add buttons  */}
           </div>
@@ -167,17 +208,26 @@ const AddNewForm = ({
                 id="photo1"
                 name="photo"
                 placeholder="img url"
-                className="py-3 text-green-500 font-medium px-5 rounded-md  w-full outline-none"
+                defaultValue={
+                  typeof content?.imgUrl === "string" && content?.imgUrl
+                }
+                className="py-3  font-medium px-5 rounded-md  w-full outline-none"
                 onBlur={(e) =>
                   setFormData({ ...formData, imgUrl: e.target.files })
                 }
               />
             ) : (
               <>
-                <label className="text-green-500" htmlFor="photo">
+                <label className="" htmlFor="photo">
                   <img
                     className="w-32 h-32 bg-white rounded-md p-2"
-                    src={urlImage ? urlImage : "/images/imgeaddicon.png"}
+                    src={
+                      urlImage
+                        ? urlImage
+                        : content?.imgUrl
+                        ? content?.imgUrl
+                        : "/images/imgeaddicon.png"
+                    }
                     alt=""
                   />
                 </label>
@@ -186,7 +236,7 @@ const AddNewForm = ({
                   id="photo"
                   name="photo"
                   placeholder="img url"
-                  className="hidden py-3 text-green-500 font-medium px-5 rounded-md  w-full outline-none"
+                  className="hidden py-3  font-medium px-5 rounded-md  w-full outline-none"
                   onChange={(e) =>
                     setFormData({ ...formData, imgUrl: e.target.files })
                   }
