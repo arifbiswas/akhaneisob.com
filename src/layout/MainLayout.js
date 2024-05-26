@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
     dispatch(getAllCategories());
   }, [dispatch]);
   return (
-    <>
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <div
         className={
           toggleDrawer
@@ -30,9 +30,11 @@ const MainLayout = ({ children }) => {
         <Drawer />
       </div>
       <Navbar />
-      {loading || loading2 ? <Loading /> : <>{children}</>}
-      <Footer />
-    </>
+      <main className="flex-1 h-full overflow-auto">
+        {loading || loading2 ? <Loading /> : <>{children}</>}
+      </main>
+      {/* <Footer /> */}
+    </div>
   );
 };
 

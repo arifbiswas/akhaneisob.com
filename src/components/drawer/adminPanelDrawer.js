@@ -15,6 +15,121 @@ const data = [
     name: "Categories",
     path: "/admin/categories",
   },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
+  {
+    id: 2,
+    name: "Categories",
+    path: "/admin/categories",
+  },
 ];
 
 const AdminPanelDrawer = () => {
@@ -22,14 +137,14 @@ const AdminPanelDrawer = () => {
   const pathname = usePathname();
   console.log(pathname);
   return (
-    <div>
+    <div className="flex-1 max-h-[83vh] overflow-auto">
       <button
         onClick={() => dispatch(toggleAdminPanelReducer())}
         className="absolute visible lg:hidden right-2 top-2 font-bold"
       >
         <TfiClose size={28} color="white" />
       </button>
-      <div className="flex flex-col gap-4 justify-center items-start mt-12">
+      <div className=" h-full flex flex-col gap-4 justify-center items-start mt-12">
         {data.map((item, index) => (
           <Link
             key={index}

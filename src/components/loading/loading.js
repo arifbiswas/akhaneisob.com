@@ -5,7 +5,7 @@ import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 const Loading = () => {
   return (
-    <div className="min-h-screen bg-green-800 flex items-center justify-center">
+    <div className="flex-1 bg-green-800 flex items-center justify-center">
       <Player
         src="https://assets7.lottiefiles.com/packages/lf20_kyh1ahfr.json"
         // https://assets7.lottiefiles.com/packages/lf20_kyh1ahfr.json 1

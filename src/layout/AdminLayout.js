@@ -11,21 +11,21 @@ const AdminLayout = ({ children }) => {
     <div
       className={
         togglePanel
-          ? "relative flex gap-5 transition-all duration-300"
+          ? "relative flex h-full gap-5 transition-all duration-300"
           : "relative flex transition-all duration-300"
       }
     >
       <div
         className={
           togglePanel
-            ? "absolute lg:relative z-40 top-3 -left-0 rounded-lg w-full lg:w-[25%] mx-auto  min-h-screen bg-green-900 transition-all duration-300"
-            : "absolute lg:relative z-40 top-3  rounded-lg  -let-[100%] w-[0%] min-h-screen bg-green-700 transition-all duration-300"
+            ? " absolute lg:relative z-40 top-3 -left-0 rounded-lg w-full lg:w-[25%] mx-auto  bg-green-900 transition-all duration-300"
+            : " absolute lg:relative z-40 top-3  rounded-lg  -let-[100%] w-[0%]  bg-green-700 transition-all duration-300"
         }
       >
         {togglePanel && <AdminPanelDrawer />}
       </div>
       <div
-        className={`relative w-full top-3  rounded-md min-h-screen bg-green-900 transition-all duration-300`}
+        className={`flex-1 relative w-full top-3  rounded-md  bg-green-900 transition-all duration-300`}
       >
         <div className="relative">
           <button
@@ -39,7 +39,7 @@ const AdminLayout = ({ children }) => {
             )}
           </button>
         </div>
-        {children}
+        <div className="flex-1 h-full">{children}</div>
       </div>
     </div>
   );
